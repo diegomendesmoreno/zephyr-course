@@ -11,8 +11,12 @@ west flash
 # Kconfig
 
 Edit prj.conf:
-```Kconfig
+```
+# if user-configurable (has a prompt defined)
 CONFIG_BLINK_SLEEP_TIME_MS=250
+
+# if choice
+CONFIG_BLINK_SLEEP_2000MS=y
 ```
 
 Use menuconfig:
@@ -23,5 +27,6 @@ west build -t menuconfig
 
 Command-line override:
 ```bash
+# if user-configurable (has a prompt defined)
 west build -b stm32f4_disco app -p -- -DCONFIG_BLINK_SLEEP_TIME_MS=2000
 ```
